@@ -5,18 +5,18 @@
 #include <HTTPClient.h>
 Adafruit_AM2320 am2320 = Adafruit_AM2320();
 //WIFI SETTINGS
-String wifiname = "XXXXXXXXXXXXXXXXXXXXXXX";
-String wifipassword = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+String wifiname = "XXXXXXXXXXXXXXXXXXXXXX";
+String wifipassword = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx";
 
 //UNIQUE DEVICE ID FOR LOGGING DATA
 String uniquedeviceid = "THERMO1";
 
 //YOUR GENERATED CREDENTIALS FOR THE FLASK APP
-String apiusername = "api";
-String apipassword = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+String apiusername = "XXXXXXXXXXXXXXXXXXXXXXXXX";
+String apipassword = "XXXXXXXXXXXXXXXXXXXXXx";
 
 //API END-POINT, SHOULD REFLECT APACHE2/OTHER HTTP SERVER CONFIG ROUTES
-String apiendpoint = "https://XXXXXXXXXXXXXXXXXXXapi/records";
+String apiendpoint = "https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXapi/records";
 
 
 void setup() {
@@ -64,6 +64,12 @@ void loop() {
       http.setUserAgent(uniquedeviceid);
       http.setAuthorization(apiusername.c_str(), apipassword.c_str());
       int httpCode = http.POST(json);
+      if (httpCode != 200) {
+        Serial.println("Failed request...retrying...");
+        return;
+      }
+      Serial.print("HTTP POST STATE: ");
+      Serial.println(httpCode);
       http.end(); 
       delay(minutes);
   }
