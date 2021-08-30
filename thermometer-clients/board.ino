@@ -5,18 +5,18 @@
 #include <HTTPClient.h>
 Adafruit_AM2320 am2320 = Adafruit_AM2320();
 //WIFI SETTINGS
-String wifiname = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-String wifipassword = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+String wifiname = "XXXXXXXXXXXXXXXXXXXXXXX";
+String wifipassword = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
 //UNIQUE DEVICE ID FOR LOGGING DATA
 String uniquedeviceid = "THERMO1";
 
 //YOUR GENERATED CREDENTIALS FOR THE FLASK APP
-String apiusername = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
-String apipassword = "XXXXXXXXXXXXXXXXXXX";
+String apiusername = "api";
+String apipassword = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
 //API END-POINT, SHOULD REFLECT APACHE2/OTHER HTTP SERVER CONFIG ROUTES
-String apiendpoint = "https://XXXXXXXXXXXXXXXXXXXXXXXXX/api/records";
+String apiendpoint = "https://XXXXXXXXXXXXXXXXXXXapi/records";
 
 
 void setup() {
@@ -36,7 +36,13 @@ void loop() {
   float humidity;
   tempreading = am2320.readTemperature();
   humidity = am2320.readHumidity();
-  delay(1500);
+
+  if (isnan(tempreading) || isnan(humidity)) {
+    Serial.println("Sensor sending failing data...retrying!");
+    delay(500);
+    return;
+  }
+  delay(2000);
   Serial.print("Humidity ");
   Serial.println(humidity);
   Serial.print("Temperature: ");
