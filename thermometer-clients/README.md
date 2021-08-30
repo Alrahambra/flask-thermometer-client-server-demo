@@ -28,11 +28,23 @@ This section is about the client sending the sensor data to the Flask server and
 
 ## Configuration
 
-Configuration of a sensor unit is simple. One needs to do following configurations:
+Configuration of a sensor unit is simple. One needs to do following configurations for the board.ino -file:
 
-1. WiFi.begin() requires the SSID and network key as arguments
-2. http.begin() requires the endpoint of the hostname where sensor data should be sent. This should reflect routing functionality in the api.py in the flask server -section
-3. A sensor unit should have an identifiable name. Sensor units are identified with an alphanumeric string e.g. THERMO01. http.setUserAgent() sets this identifiable name.
+```
+//WIFI SETTINGS
+String wifiname = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+String wifipassword = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+
+//UNIQUE DEVICE ID FOR LOGGING DATA
+String uniquedeviceid = "THERMO1";
+
+//YOUR GENERATED CREDENTIALS FOR THE FLASK APP
+String apiusername = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
+String apipassword = "XXXXXXXXXXXXXXXXXXX";
+
+//API END-POINT, SHOULD REFLECT APACHE2/OTHER HTTP SERVER CONFIG ROUTES
+String apiendpoint = "https://XXXXXXXXXXXXXXXXXXXXXXXXX/api/records";
+```
 
 ### Programming units
 
