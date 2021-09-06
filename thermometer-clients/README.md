@@ -13,12 +13,20 @@ This section is about the client sending the sensor data to the Flask server and
 # Setup and programming
 --
 ## Dependencies
---
+
+- Arduino IDE or compatible IDE that can configure the project variables in the beginning of the board.ino -file
+- The mentioned hardware
+
 ## Wiring
 
 ### Diagram and info
 
 ### Pictures
+
+Assembled components on the development board functional and connected to a local WIFI network:
+
+![](board_picture.jpg)
+*From left to right: AM2320 sensor, ESP32 module and a battery pack*
 
 ## Datasheets
 
