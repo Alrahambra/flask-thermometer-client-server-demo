@@ -10,16 +10,33 @@ This section is about the client sending the sensor data to the Flask server and
 - WIFI router
 
 
-# Setup and programming
---
+## Setup and programming
+
 ## Dependencies
 
 - Arduino IDE or compatible IDE that can configure the project variables in the beginning of the board.ino -file
 - The mentioned hardware
 
-## Wiring
+# Wiring and other information
 
-### Diagram and info
+### Wiring diagram
+
+For the simplicity reasons, the colors used in the picture represent same wiring colors as used in the picture below.
+
+As specified in the AM2023 datasheet mentioned below, reading from left to right, assuming the reading taking part of the sensor is facing forwards as in the diagram, the wiring is following for ESP32:
+
+- Yellow line
+  - ESP32 3.3V line to AM2023 power supply line
+- Green line
+  - GPIO21 of ESP32 to Serial Data Port of AM2023
+- Blue line
+  - Ground of ESP32 to Ground of AM2023
+- Purple line
+  - GPIO22 of ESP32 to Serial Clock line of AM2023
+  
+
+
+![](wiring_diagram.png)
 
 ### Pictures
 
@@ -30,9 +47,15 @@ Assembled components on the development board functional and connected to a loca
 
 ## Datasheets
 
-### Sensor
+For interested, these datasheets might be helpful in understanding technical details of the used hardware and details in e.g. wiring and communication between boards with serial data.
 
-### ESP32
+Peripheral read flowchart in the AM2320 datasheet was used to handle errors in data readings providing erroneous readings.
+
+- ESP32-WROOM
+  - https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf
+- AM2320
+  - https://cdn-shop.adafruit.com/product-files/3721/AM2320.pdf
+
 
 ## Configuration
 
