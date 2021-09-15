@@ -131,3 +131,9 @@ You could also test the functionality with curl by issuing:
 Which should create an intentional error of authentication failure.
 
 The service should be now behing HTTP BASIC authentication, Apache2, Gunicorn with Flask finally serving inputs and outputs.
+
+# Screenshot of sample data 
+
+Here in the screenshot it is possible to see how collected data looks like in the MariaDB/MySQL server side:
+
+![](logged_entries_example.png)
