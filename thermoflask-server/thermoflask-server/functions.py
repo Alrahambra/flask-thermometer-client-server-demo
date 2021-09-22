@@ -63,7 +63,7 @@ def Store_thermo_entry(device_id, temp, humidity,timestamp):
 
 def Get_thermo_entries(device_id):
     #SQL query...
-    sql = '''SELECT temp, humidity, timestamp FROM data_entries where device_id = "{}" limit 10080'''.format(device_id)
+    sql = '''SELECT temp, humidity, timestamp FROM data_entries where device_id = "{}" order by timestamp desc limit 10080'''.format(device_id)
     #Preprocess...
     cur.execute(sql)
     full_data = cur.fetchall()
