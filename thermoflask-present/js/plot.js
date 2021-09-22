@@ -7,7 +7,7 @@ function make_plot() {
 
 
     $.ajax({
-        url: window.location.href + 'records',
+        url: window.location.href + 'api/records',
         async: false,
         dataType: 'json',
         success: function (response) {
