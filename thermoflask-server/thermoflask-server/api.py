@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from functions import ThermalDataValidator, Store_thermo_entry
+from functions import ThermalDataValidator, Store_thermo_entry, Get_thermo_entries
 from config import *
 from flask_restful import Resource, Api, abort
 from flask import Flask, jsonify, request, escape, make_response
@@ -34,8 +34,11 @@ def custom_401(error):
 class RecordTemp(Resource):
     @auth.login_required
     def get(self):
-        #Gives temperature data
-        return "Nothing to return yet"
+        #Default, might support e.g. query params in the future and default settings
+        device = "THERMO1"
+        thermodata = Get_thermo_entries(device)
+        response = make_response(thermodata)
+        return make_response(response)
 
     @auth.login_required
     def post(self):

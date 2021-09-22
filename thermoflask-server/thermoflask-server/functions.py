@@ -3,6 +3,7 @@ import numbers
 import sys
 import mariadb
 from config import *
+from datetime import datetime
 
 # Connect to MariaDB Platform
 try:
@@ -57,3 +58,35 @@ def Store_thermo_entry(device_id, temp, humidity,timestamp):
         #Error is logged into console or syslog depending on deployment, return false to tell about error in DB 
         print(f"Error: {e}")
         return False
+
+
+
+def Get_thermo_entries(device_id):
+    #SQL query...
+    sql = '''SELECT temp, humidity, timestamp FROM data_entries where device_id = "{}" limit 10080'''.format(device_id)
+    #Preprocess...
+    cur.execute(sql)
+    full_data = cur.fetchall()
+    temp_list = []
+    humidity_list= []
+    timestamp_list = []
+    for line in full_data:
+        temp = line[0]
+        humidity = line[1]
+        timestamp = line[2]
+
+        temp_list.append(temp)
+        humidity_list.append(humidity)
+        #convert to ISO for Plotly
+        #sample: 2021-08-30 22:15:37
+        iso_timestamp = timestamp.strftime('%Y-%m-%d %H:%M:%S')
+        timestamp_list.append(str(iso_timestamp))
+    
+    data_dict = {}
+    data_dict['temp_data'] = temp_list
+    data_dict['hum_data'] = humidity_list
+    data_dict['time_data'] = timestamp_list
+        
+
+
+    return data_dict
