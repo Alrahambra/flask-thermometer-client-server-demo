@@ -43,9 +43,9 @@ function make_plot() {
         yaxis: {
             title: 'Temperature',
             titlefont: {
-                color: 'orange',
+                color: 'blue',
                 tickfont: {
-                    color: 'orange'
+                    color: 'blue'
                 }
             }
         },
@@ -53,10 +53,10 @@ function make_plot() {
         yaxis2: {
             title: 'Humidity',
             titlefont: {
-                color: 'blue'
+                color: 'orange'
             },
             tickfont: {
-                color: 'blue'
+                color: 'orange'
             },
             overlaying: 'y',
             side: 'right'
