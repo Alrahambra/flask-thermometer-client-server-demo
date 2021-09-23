@@ -28,6 +28,8 @@ From top to bottom:
 - Sample entries logged inside the MySQL database
 
 
-![](thermoflask-present/demo-view.png | width=700)
-![](thermometer-clients/board_picture.jpg | width=700)
-![](thermoflask-server/logged_entries_example.png | width=700)
+![](thermoflask-present/demo-view.png)
+
+![](thermometer-clients/board_picture.jpg)
+
+![](thermoflask-server/logged_entries_example.png)
