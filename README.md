@@ -29,5 +29,5 @@ From top to bottom:
 
 
 ![](thermoflask-present/demo-view.png)
-![](thermoflask-clients/board_picture.jpg)
+![](thermometer-clients/board_picture.jpg)
 ![](thermoflask-server/logged_entries_example.png)
