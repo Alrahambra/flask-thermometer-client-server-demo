@@ -33,3 +33,9 @@ From top to bottom:
 ![](thermometer-clients/board_picture.jpg)
 
 ![](thermoflask-server/logged_entries_example.png)
+
+<img src="https://github.com/Alrahambra/flask-thermometer-client-server-demo/raw/master/thermoflask-present/demo-view.png" width="500"/>
+
+<img src="https://raw.githubusercontent.com/Alrahambra/flask-thermometer-client-server-demo/master/thermometer-clients/board_picture.jpg" width="500"/><br>
+
+<img src="https://raw.githubusercontent.com/Alrahambra/flask-thermometer-client-server-demo/master/thermoflask-server/logged_entries_example.png" width="500"/>
